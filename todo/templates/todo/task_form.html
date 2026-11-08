@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{% if object %}Edit task{% else %}Add task{% endif %}{% endblock %}
+
+{% block content %}
+  <h1 class="h3 mb-4">{% if object %}Edit task{% else %}Add task{% endif %}</h1>
+
+  <form method="post" class="col-lg-6">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="mb-3">
+      <label class="form-label" for="{{ form.content.id_for_label }}">Content</label>
+      {{ form.content }}
+      {{ form.content.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="{{ form.deadline.id_for_label }}">Deadline (optional)</label>
+      {{ form.deadline }}
+      {{ form.deadline.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label d-block">Tags</label>
+      {{ form.tags }}
+      {{ form.tags.errors }}
+    </div>
+
+    <div class="form-check mb-4">
+      {{ form.is_done }}
+      <label class="form-check-label" for="{{ form.is_done.id_for_label }}">Done</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{% url 'todo:task-list' %}" class="btn btn-outline-secondary">Cancel</a>
+  </form>
+{% endblock %}
