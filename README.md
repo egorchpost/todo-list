@@ -4,6 +4,14 @@ A simple Django todo-list app with tasks and tags.
 
 ## Run locally
 
+### Environment variables
+
+Create a `.env` file from the example:
+```bash
+cp .env.example .env
+```
+Then, update the `SECRET_KEY` and `DEBUG` values in the .env file. 
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
