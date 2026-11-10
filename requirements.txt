@@ -1,4 +1,5 @@
 Django
+python-dotenv
 black
 flake8
 flake8-quotes
