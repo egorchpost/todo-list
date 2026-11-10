@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{% if object %}Edit tag{% else %}Add tag{% endif %}{% endblock %}
+
+{% block content %}
+  <h1 class="h3 mb-4">{% if object %}Edit tag{% else %}Add tag{% endif %}</h1>
+
+  <form method="post" class="col-lg-4">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label" for="{{ form.name.id_for_label }}">Name</label>
+      {{ form.name }}
+      {{ form.name.errors }}
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{% url 'todo:tag-list' %}" class="btn btn-outline-secondary">Cancel</a>
+  </form>
+{% endblock %}

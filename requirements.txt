@@ -1,0 +1,7 @@
+Django
+python-dotenv
+black
+flake8
+flake8-quotes
+flake8-variables-names
+pep8-naming
